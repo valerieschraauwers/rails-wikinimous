@@ -1,0 +1,21 @@
+
+<h1>Articles <%= link_to "Create new article", new_article_path, class: "btn btn-success", id: "new" %></h1>
+<hr>
+<div class="wrapper">
+<div class="container">
+<ul>
+<% @articles.each do |article| %>
+<li class="article"><h2><%= link_to article.title, article_path(article), id: "article-link" %></h2>
+<p id="content-link"><%= article.content[0...150] %></p>
+<p><%= link_to article_path(article),
+      method: :delete,
+      data: { confirm: "Are you sure?" } do %><i class="far fa-trash-alt"></i>
+      <% end %></p>
+
+    <% end %>
+    </li>
+</ul>
+</div>
+</div>
+
+
